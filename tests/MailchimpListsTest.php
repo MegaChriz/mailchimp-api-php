@@ -304,12 +304,13 @@ class MailchimpListsTest extends TestCase {
   /**
    * Tests library functionality for adding tags to a member.
    */
-  public function testAddTagsMember() {
+  public function testAddMemberTags() {
     $list_id = '205d96e6b4';
     $tags = ['Foo', 'Bar'];
     $email = 'test@example.com';
+
     $mc = new MailchimpLists();
-    $mc->addTagsMember($list_id, $tags, $email);
+    $mc->addMemberTags($list_id, $tags, $email);
 
     $this->assertEquals('POST', $mc->getClient()->method);
     $this->assertEquals($mc->getEndpoint() . '/lists/' . $list_id . '/members/' . md5($email) . '/tags', $mc->getClient()->uri);
@@ -334,12 +335,13 @@ class MailchimpListsTest extends TestCase {
   /**
    * Tests library functionality for removing tags from a member.
    */
-  public function testRemoveTagsMember() {
+  public function testRemoveMemberTags() {
     $list_id = '205d96e6b4';
     $tags = ['Foo', 'Bar'];
     $email = 'test@example.com';
+
     $mc = new MailchimpLists();
-    $mc->removeTagsMember($list_id, $tags, $email);
+    $mc->removeMemberTags($list_id, $tags, $email);
 
     $this->assertEquals('POST', $mc->getClient()->method);
     $this->assertEquals($mc->getEndpoint() . '/lists/' . $list_id . '/members/' . md5($email) . '/tags', $mc->getClient()->uri);

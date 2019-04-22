@@ -503,9 +503,9 @@ class MailchimpLists extends Mailchimp {
    *
    * @return object
    *
-   * @see https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/tags/
+   * @see http://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/tags/#create-post_lists_list_id_members_subscriber_hash_tags
    */
-  public function addTagsMember($list_id, array $tags, $email, array $parameters = []) {
+  public function addMemberTags($list_id, array $tags, $email, array $parameters = []) {
     $tokens = [
       'list_id' => $list_id,
       'subscriber_hash' => md5(strtolower($email)),
@@ -535,9 +535,9 @@ class MailchimpLists extends Mailchimp {
    *
    * @return object
    *
-   * @see https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/tags/
+   * @see http://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/tags/#create-post_lists_list_id_members_subscriber_hash_tags
    */
-  public function removeTagsMember($list_id, array $tags, $email, array $parameters = []) {
+  public function removeMemberTags($list_id, array $tags, $email, array $parameters = []) {
     $tokens = [
       'list_id' => $list_id,
       'subscriber_hash' => md5(strtolower($email)),
